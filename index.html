@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="Css/styles.css">
+
+    <title> samah  solution </title>
+    <meta name="viewport" content="width= device-width, initial-scale =1.0"
+    
+
+    
+</head>
+
+<body>
+   
+        <div class="header"> samah Menu </div>
+        <div class="menu-items">
+            <div class="item">
+                <h3 class="chicken"> lunch </h3>
+                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus beatae quisquam veritatis architecto
+                    saepe itaque corporis animi quas aliquam quo adipisci aspernatur, optio voluptatem molestias, eos
+                    harum consequuntur reprehenderit eum.
+                </p>
+            </div>
+
+            <div class="item">
+                <h3 class="beef"> dinner</h3>
+                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus beatae quisquam veritatis architecto
+                    saepe itaque corporis animi quas aliquam quo adipisci aspernatur, optio voluptatem molestias, eos
+                    harum consequuntur reprehenderit eum.
+                </p>
+            </div>
+
+            <div class="item">
+                <h3 class="sushi"> sandwiches</h3>
+                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus beatae quisquam veritatis architecto
+                    saepe itaque corporis animi quas aliquam quo adipisci aspernatur, optio voluptatem molestias, eos
+                    harum consequuntur reprehenderit eum.
+                </p>
+            </div>
+        </div>
+    <script>
+        // Sample static JSON data for the items (based on the provided PDF details)
+const itemsData = {
+    "chicken": [
+        {"name": "Fried", "description": "Fried chicken is very delicious and very light on the stomach"},
+        {"name": "boiled", "description": "Boiled chicken is very healthy however it is not that tasty."},
+        {"name": "Grilled", "description": "On top of a coal fire that is very hot this kind is cooked and added to it hot spices"},
+        // ... Additional chicken details can be added here
+    ],
+    "beef": [
+        // Sample data for beef (this is just a placeholder, you can add actual data)
+        {"name": "Steak", "description": "Steak is juicy and flavorful when grilled to perfection"},
+        {"name": "Steak", "description": "Steak is juicy and flavorful when grilled to perfection"},
+        {"name": "Steak", "description": "Steak is juicy and flavorful when grilled to perfection"},
+
+
+        // ... Additional beef details can be added here
+    ],
+    "sushi": [
+        // Sample data for sushi (this is just a placeholder, you can add actual data)
+        {"name": "California Roll", "description": "A classic sushi roll with avocado, crab, and cucumber"},
+                {"name": "Steak", "description": "Steak is juicy and flavorful when grilled to perfection"},
+
+        // ... Additional sushi details can be added here
+    ]
+};
+
+// Function to handle the click event on an item
+function handleItemClick(event) {
+    const itemType = event.currentTarget.querySelector('h3').classList[0];  // Get the class name (chicken, beef, sushi)
+    const itemData = itemsData[itemType];
+    let content = '<div class="header">  </div>';
+    
+    itemData.forEach(data => {
+        content += `
+            <div class="item">
+                <h3 class="${itemType}"> ${data.name} </h3>
+                <p> ${data.description} </p>
+            </div>
+        `;
+    });
+    
+    document.querySelector('.menu-items').innerHTML = content;
+}
+
+// Attach the event listener to each item
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('click', handleItemClick);
+});
+
+</script>
+</body>
+
+</html>
